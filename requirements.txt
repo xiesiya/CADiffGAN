@@ -1,0 +1,27 @@
+# CADiffGAN dependencies
+# Install: pip install -r requirements.txt
+# Tested with Python 3.10, PyTorch 2.1.0 (CUDA 11.8), NumPy < 2
+
+# ---- Core (required to train and evaluate) ----
+torch==2.1.0
+numpy<2
+scipy==1.11.4
+scikit-learn==1.3.2
+pandas
+openpyxl            # required to read the .xlsx association and feature files
+
+# ---- Optional multimodal feature extractors ----
+# The loader falls back to identity / one-hot features if these are absent.
+biopython           # RNA sequence / GC content features
+rdkit               # Morgan / MACCS fingerprints for drug SMILES
+
+# ---- Optional analysis / visualization ----
+matplotlib==3.8.0   # s_v distribution histogram in analyze_sv.py
+
+# ---- Optional: only needed to load external baseline checkpoints ----
+# PyTorch Geometric (install a wheel matching your torch + CUDA build):
+# pip install torch_geometric
+# pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-2.1.0+cu118.html
+#
+# DGL (alternative, if an external baseline checkpoint is in DGL format):
+# pip install dgl -f https://data.dgl.ai/wheels/torch-2.1/repo.html
